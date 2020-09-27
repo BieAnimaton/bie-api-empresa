@@ -1,8 +1,8 @@
 const mysql = require('mysql');
-const table_creator = require('./models/create-table');
-const insertColumns = require('./models/insert-table');
+const criarTab = require('./models/criar_tabela');
+const inserirTab = require('./models/inserir_tabela');
 
-function execSQLQuery(sqlQry, res){
+function executar_query_sql(sqlQry, res){
   const connection = mysql.createConnection({
     host     : 'localhost',
     port     : 3306,
@@ -10,6 +10,15 @@ function execSQLQuery(sqlQry, res){
     password : '',
     database : 'empresa_bie'
   });
+
+  // Criando db
+  criarTab;
+  console.log('Tabela Criada');
+
+  // Inserindo dados
+  //inserirTab;
+  //console('Inserindo primeiros dados na Tabela!')
+
 
   connection.query(sqlQry, function(error, results, fields){
       if(error) 
@@ -21,4 +30,4 @@ function execSQLQuery(sqlQry, res){
   });
 }
 
-module.exports = execSQLQuery;
+module.exports = executar_query_sql;
