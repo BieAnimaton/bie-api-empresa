@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const port = 8080;
 
 const cors = require('cors');
 const mysql = require('mysql');
@@ -15,5 +14,6 @@ app.use(cors());
 app.get('/api', (req, res) => res.json({ message: 'Funcionando!' }));
 app.use('/api', require('./src/rotas'));
 
-app.listen(port);
+app.listen(process.env.PORT || 8080);
+
 console.log('API funcionando!');
